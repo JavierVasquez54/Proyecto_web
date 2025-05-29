@@ -13,6 +13,7 @@ const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const cinemaRoutes = require('./routes/cinema.routes');
 const reservationRoutes = require('./routes/reservation.routes');
+const reportRoutes = require('./routes/report.routes'); // 👈 AGREGAR ESTA LÍNEA
 
 // Import error middleware
 const errorMiddleware = require('./middlewares/error.middleware');
@@ -33,6 +34,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/cinemas', cinemaRoutes);
 app.use('/api/reservations', reservationRoutes);
+app.use('/api/admin/report', reportRoutes); // 👈 AGREGAR ESTA LÍNEA
 
 // Error handling middleware
 app.use(errorMiddleware);

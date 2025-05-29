@@ -16,9 +16,12 @@ import SeatSelection from './components/cinema/SeatSelection';
 import CreateCinema from './components/admin/CreateCinema';
 import EditCinema from './components/admin/EditCinema';
 import UserManagement from './components/admin/UserManagement';
+import UserReservations from './components/reservation/UserReservations';
+import ManageCinemas from './components/admin/ManageCinemas';
+import ActivityReport from './components/admin/ActivityReport';
 
 function App() {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
   
   return (
     <>
@@ -39,6 +42,14 @@ function App() {
               </ProtectedRoute>
             } 
           />
+          <Route 
+            path="/reservations" 
+            element={
+              <ProtectedRoute>
+                <UserReservations />
+              </ProtectedRoute>
+            } 
+          />
           
           {/* Admin routes */}
           <Route 
@@ -46,6 +57,14 @@ function App() {
             element={
               <ProtectedRoute roles={['admin']}>
                 <CreateCinema />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/cinemas" 
+            element={
+              <ProtectedRoute roles={['admin']}>
+                <ManageCinemas />
               </ProtectedRoute>
             } 
           />
@@ -62,6 +81,14 @@ function App() {
             element={
               <ProtectedRoute roles={['admin']}>
                 <UserManagement />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/admin/report" 
+            element={
+              <ProtectedRoute roles={['admin']}>
+                <ActivityReport />
               </ProtectedRoute>
             } 
           />

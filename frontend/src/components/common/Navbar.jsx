@@ -1,3 +1,4 @@
+// frontend/src/components/common/Navbar.jsx
 import React, { useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
@@ -16,8 +17,6 @@ import {
   Menu as MenuIcon,
   MovieFilter as MovieIcon,
   AccountCircle,
-  EventSeat as ReservationIcon,
-  Settings as SettingsIcon,
 } from '@mui/icons-material';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -149,6 +148,15 @@ const Navbar = () => {
                     }}
                   >
                     <Typography textAlign="center">Administrar Usuarios</Typography>
+                  </MenuItem>,
+                  <MenuItem
+                    key="activity-report"
+                    onClick={() => {
+                      handleCloseNavMenu();
+                      navigate('/admin/report');
+                    }}
+                  >
+                    <Typography textAlign="center">Reporte</Typography>
                   </MenuItem>
                 ]
               )}
@@ -211,6 +219,12 @@ const Navbar = () => {
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   Administrar Usuarios
+                </Button>
+                <Button
+                  onClick={() => navigate('/admin/report')}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  Reporte
                 </Button>
               </>
             )}
